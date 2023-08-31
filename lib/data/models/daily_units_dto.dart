@@ -11,7 +11,6 @@ class DailyUnitsDto {
   final String temperature2mMin;
   final String sunrise;
   final String sunset;
-
   DailyUnitsDto(
     this.time,
     this.temperature2mMax,

@@ -13,6 +13,15 @@ class SearchWeatherBody extends StatefulWidget {
 class _SearchWeatherBody extends State<SearchWeatherBody> {
   final cityTextField = TextEditingController();
 
+  bool submit = false;
+
+  @override
+  void initState() {
+    super.initState();
+    cityTextField.addListener(
+        () => setState(() => submit = cityTextField.text.isNotEmpty));
+  }
+
   @override
   void dispose() {
     cityTextField.dispose();
@@ -20,45 +29,54 @@ class _SearchWeatherBody extends State<SearchWeatherBody> {
   }
 
   @override
-  Widget build(BuildContext context) {
-    return SafeArea(
-      child: Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: Column(
-          children: [
-            TextField(
-              decoration: InputDecoration(
-                  focusedBorder: OutlineInputBorder(
-                    borderSide: const BorderSide(color: Colors.white),
-                    borderRadius: BorderRadius.circular(25.7),
+  Widget build(BuildContext context) => SafeArea(
+        child: Padding(
+          padding: const EdgeInsets.all(16.0),
+          child: Column(
+            children: [
+              TextField(
+                decoration: InputDecoration(
+                    focusedBorder: OutlineInputBorder(
+                      borderSide: const BorderSide(color: Colors.white),
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                    enabledBorder: UnderlineInputBorder(
+                      borderSide: const BorderSide(color: Colors.white),
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                    contentPadding: const EdgeInsets.symmetric(
+                        horizontal: 12, vertical: 16),
+                    filled: true,
+                    fillColor: Colors.white,
+                    suffixIcon: IconButton(
+                      icon: const Icon(Icons.search),
+                      onPressed: submit
+                          ? () => context.read<WeatherCubit>().getWeather(
+                              cityTextField.text,
+                              MyLocation(city: null, country: null))
+                          : null,
+                    ),
+                    hintText: 'Search'),
+                controller: cityTextField,
+              ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: ElevatedButton(
+                  style:
+                      ElevatedButton.styleFrom(backgroundColor: Colors.white),
+                  onPressed: () =>
+                      context.read<WeatherCubit>().determinePosition(),
+                  child: const Padding(
+                    padding: EdgeInsets.all(16.0),
+                    child: Text(
+                      'My location',
+                      style: TextStyle(color: Colors.black, fontSize: 15),
+                    ),
                   ),
-                  enabledBorder: UnderlineInputBorder(
-                    borderSide: const BorderSide(color: Colors.white),
-                    borderRadius: BorderRadius.circular(25.7),
-                  ),
-                  contentPadding:
-                      const EdgeInsets.only(left: 14.0, bottom: 8.0, top: 8.0),
-                  filled: true,
-                  fillColor: Colors.blue.shade100,
-                  hintText: 'Enter city to search weather...'),
-              controller: cityTextField,
-            ),
-            ElevatedButton(
-              style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.blue.shade200),
-              onPressed: () => context.read<WeatherCubit>().getWeather(
-                  cityTextField.text, MyLocation(city: null, country: null)),
-              child: const Text('See weather'),
-            ),
-            ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.blue.shade200),
-                onPressed: () =>
-                    context.read<WeatherCubit>().determinePosition(),
-                child: const Text('Get my current position')),
-          ],
+                ),
+              ),
+            ],
+          ),
         ),
-      ),
-    );
-  }
+      );
 }
