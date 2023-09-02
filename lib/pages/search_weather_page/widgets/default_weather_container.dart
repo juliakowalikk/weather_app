@@ -21,37 +21,37 @@ class DefaultWeatherContainer extends StatelessWidget {
         child: Container(
           decoration: BoxDecoration(
             image: DecorationImage(
-                image: AssetImage(imageAsset),
-                fit: BoxFit.cover,
-                colorFilter:
-                    const ColorFilter.mode(Colors.grey, BlendMode.modulate)),
+              image: AssetImage(imageAsset),
+              fit: BoxFit.cover,
+              colorFilter:
+                  const ColorFilter.mode(Colors.grey, BlendMode.modulate),
+            ),
             borderRadius: BorderRadius.circular(10),
             color: Colors.blue,
           ),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
+          child: Row(
+            crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              Padding(
-                padding: const EdgeInsets.only(left: 8, right: 30, top: 30),
-                child: Text(
-                  country!,
-                  style: AppTypography.style6,
-                ),
-              ),
-              Row(
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Expanded(
-                    child: Padding(
-                      padding:
-                          const EdgeInsets.only(bottom: 30, left: 8, top: 6),
-                      child: Text(city!, style: AppTypography.style7),
+                  Padding(
+                    padding: const EdgeInsets.only(left: 8, top: 30),
+                    child: Text(
+                      country!,
+                      style: AppTypography.style6,
                     ),
                   ),
                   Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Text('$temperature°', style: AppTypography.style5),
+                    padding: const EdgeInsets.only(bottom: 30, left: 8, top: 6),
+                    child: Text(city!, style: AppTypography.style7),
                   ),
                 ],
+              ),
+              const Spacer(),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Text('$temperature°', style: AppTypography.style5),
               ),
             ],
           ),

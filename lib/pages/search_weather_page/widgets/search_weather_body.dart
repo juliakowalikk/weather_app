@@ -60,12 +60,13 @@ class _SearchWeatherBody extends State<SearchWeatherBody> {
                 controller: cityTextField,
               ),
               Padding(
-                padding: const EdgeInsets.all(8.0),
+                padding: const EdgeInsets.only(
+                  top: 8,
+                ),
                 child: ElevatedButton(
                   style:
                       ElevatedButton.styleFrom(backgroundColor: Colors.white),
-                  onPressed: () =>
-                      context.read<WeatherCubit>().determinePosition(),
+                  onPressed: context.read<WeatherCubit>().determinePosition,
                   child: const Padding(
                     padding: EdgeInsets.all(16.0),
                     child: Text(

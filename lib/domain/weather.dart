@@ -4,9 +4,9 @@ class Weather {
   final double minTemperature;
   final double maxTemperature;
   final MyLocation location;
-  final String sunset;
-  final String sunrise;
-  final List<String> time;
+  final DateTime sunset;
+  final DateTime sunrise;
+  final List<DateTime> time;
   final List<double> temperature;
 
   const Weather({

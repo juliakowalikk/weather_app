@@ -9,8 +9,8 @@ class DailyDto {
   final List<double> temperature2mMax;
   @JsonKey(name: 'temperature_2m_min')
   final List<double> temperature2mMin;
-  final List<String> sunrise;
-  final List<String> sunset;
+  final List<DateTime> sunrise;
+  final List<DateTime> sunset;
 
   DailyDto(
     this.time,

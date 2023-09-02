@@ -27,7 +27,7 @@ class AppTypography {
   static TextStyle style5 = const TextStyle(
     color: Colors.white,
     fontWeight: FontWeight.w300,
-    fontSize: 28,
+    fontSize: 30,
   );
 
   static TextStyle style6 = const TextStyle(

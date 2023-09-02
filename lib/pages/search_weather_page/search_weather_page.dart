@@ -44,25 +44,24 @@ class SearchWeatherPage extends StatelessWidget {
                   children: [
                     Text(today, style: AppTypography.style8),
                     ListView.builder(
-                        shrinkWrap: true,
-                        itemCount: weather.length,
-                        itemBuilder: (context, index) {
-                          return Column(
-                            children: [
-                              DefaultWeatherContainer(
-                                  country: weather[index].location.country,
-                                  temperature: weather[index].maxTemperature,
-                                  city: weather[index].location.city,
-                                  imageAsset: weather[index].maxTemperature > 25
-                                      ? 'assets/images/hot_search_page.jpg'
-                                      : weather[index].maxTemperature > 20
-                                          ? 'assets/images/moderately_hot_search_page.jpg'
-                                          : weather[index].maxTemperature > 10
-                                              ? 'assets/images/cloudy_search_page.jpg'
-                                              : 'assets/images/cold_search_page.jpg'),
-                            ],
-                          );
-                        }),
+                      shrinkWrap: true,
+                      itemCount: weather.length,
+                      itemBuilder: (context, index) => Column(
+                        children: [
+                          DefaultWeatherContainer(
+                              country: weather[index].location.country,
+                              temperature: weather[index].maxTemperature,
+                              city: weather[index].location.city,
+                              imageAsset: weather[index].maxTemperature > 25
+                                  ? 'assets/images/hot_search_page.jpg'
+                                  : weather[index].maxTemperature > 20
+                                      ? 'assets/images/moderately_hot_search_page.jpg'
+                                      : weather[index].maxTemperature > 10
+                                          ? 'assets/images/cloudy_search_page.jpg'
+                                          : 'assets/images/cold_search_page.jpg'),
+                        ],
+                      ),
+                    ),
                   ],
                 ),
                 orElse: () => const SizedBox(),

@@ -4,7 +4,7 @@ part 'hourly_dto.g.dart';
 
 @JsonSerializable()
 class HourlyDto {
-  final List<String> time;
+  final List<DateTime> time;
   @JsonKey(name: 'temperature_2m')
   final List<double> temperature2m;
 

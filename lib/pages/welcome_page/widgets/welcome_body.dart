@@ -10,7 +10,7 @@ class WelcomeBody extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Text(
-            'Discover \nthe weather \nin your city',
+            Strings.of(context).welcomeTitle,
             textAlign: TextAlign.center,
             style: AppTypography.style1,
           ),

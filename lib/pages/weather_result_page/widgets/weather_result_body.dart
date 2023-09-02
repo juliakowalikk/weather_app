@@ -2,7 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:weather_app/data/models/location.dart';
 import 'package:weather_app/domain/weather.dart';
+import 'package:weather_app/pages/weather_result_page/widgets/weather_sun.dart';
+import 'package:weather_app/pages/weather_result_page/widgets/weather_temperature.dart';
 import 'package:weather_app/style/app_typography.dart';
+
+import 'hourly_result_list_view.dart';
 
 class WeatherResultBody extends StatelessWidget {
   final MyLocation myLocation;
@@ -19,99 +23,69 @@ class WeatherResultBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     String today = DateFormat('EEEE, MMMM d').format(DateTime.now());
-    DateTime sunriseDate = DateTime.parse(weather.sunrise);
-    var hhSunrise = sunriseDate.hour;
-    var mmSunrise = sunriseDate.minute;
-    DateTime sunsetDate = DateTime.parse(weather.sunset);
-    var hhSunset = sunsetDate.hour;
-    var mmSunset = sunsetDate.minute;
+    String sunriseTime = DateFormat.jm().format(weather.sunrise);
+    String sunsetTime = DateFormat.jm().format(weather.sunset);
+
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: Column(
-        crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           Container(
             decoration: BoxDecoration(
               image: DecorationImage(
-                  image: AssetImage(weatherImage),
-                  fit: BoxFit.cover,
-                  colorFilter:
-                      const ColorFilter.mode(Colors.grey, BlendMode.modulate)),
+                image: AssetImage(weatherImage),
+                fit: BoxFit.cover,
+                colorFilter:
+                    const ColorFilter.mode(Colors.grey, BlendMode.modulate),
+              ),
               borderRadius: BorderRadius.circular(10),
               color: Colors.blue,
             ),
             child: Padding(
-              padding: const EdgeInsets.all(40.0),
+              padding: const EdgeInsets.all(30.0),
               child: Column(
                 children: [
-                  Text('${myLocation.city}', style: AppTypography.style5),
+                  Text(
+                    '${myLocation.city}',
+                    style: AppTypography.style5,
+                  ),
                   Text(today, style: AppTypography.style4),
+                  WeatherTemperature(
+                    weatherTemp: weather.minTemperature,
+                    textTemp: 'Minimal temperature ',
+                  ),
+                  WeatherTemperature(
+                    weatherTemp: weather.maxTemperature,
+                    textTemp: 'Maximum temperature ',
+                  ),
                   Padding(
-                    padding: const EdgeInsets.all(40),
-                    child: RichText(
-                      text: TextSpan(
-                        text: 'Minimal temperature ',
-                        style: const TextStyle(color: Colors.white),
-                        children: [
-                          TextSpan(
-                              text: '${weather.minTemperature}',
-                              style: AppTypography.style3),
-                          TextSpan(text: '°', style: AppTypography.style3),
-                        ],
+                    padding: const EdgeInsets.symmetric(vertical: 10),
+                    child: Container(
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(10),
+                        border: Border.all(color: Colors.white),
                       ),
+                      height: 130,
+                      child: ListView.builder(
+                          scrollDirection: Axis.horizontal,
+                          shrinkWrap: true,
+                          itemCount: weather.time.length,
+                          itemBuilder: (context, index) {
+                            String formattedDate =
+                                DateFormat.j().format(weather.time[index]);
+                            return HourlyResultBody(
+                                time: formattedDate,
+                                temperature: weather.temperature[index],
+                                weather: weather);
+                          }),
                     ),
                   ),
-                  Padding(
-                    padding: const EdgeInsets.only(
-                        left: 8, right: 8, top: 0, bottom: 40),
-                    child: RichText(
-                      text: TextSpan(
-                        text: 'Maximum temperature ',
-                        style: const TextStyle(color: Colors.white),
-                        children: [
-                          TextSpan(
-                              text: '${weather.maxTemperature}',
-                              style: AppTypography.style3),
-                          TextSpan(text: '°', style: AppTypography.style3),
-                        ],
-                      ),
-                    ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.symmetric(vertical: 16),
-                    child: Row(
-                      children: [
-                        Image.asset(
-                          'assets/images/sunrise.png',
-                          scale: 12,
-                          color: Colors.white,
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: Text(
-                            'Sunrise: $hhSunrise:$mmSunrise',
-                            style: AppTypography.style4,
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.symmetric(vertical: 16),
-                    child: Row(
-                      children: [
-                        Image.asset(
-                          'assets/images/sunset.png',
-                          scale: 12,
-                          color: Colors.white,
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: Text('Sunset: $hhSunset:$mmSunset',
-                              style: AppTypography.style4),
-                        ),
-                      ],
-                    ),
+                  WeatherSun(
+                      assetImage: 'assets/images/sunrise.png',
+                      time: sunriseTime),
+                  WeatherSun(
+                    assetImage: 'assets/images/sunset.png',
+                    time: sunsetTime,
                   ),
                 ],
               ),
