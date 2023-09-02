@@ -44,4 +44,8 @@ class AppTypography {
     fontSize: 16,
     fontWeight: FontWeight.w300,
   );
+  static TextStyle style9 = const TextStyle(
+    color: Colors.black,
+    fontSize: 15,
+  );
 }

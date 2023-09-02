@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:weather_app/style/app_typography.dart';
 
 class WelcomeBody extends StatelessWidget {
@@ -16,7 +17,7 @@ class WelcomeBody extends StatelessWidget {
           ),
           Image.asset('assets/images/welcome_page.jpg'),
           Text(
-            'Get know your weather \nmaps and radar precipitation \nforecast',
+            Strings.of(context).welcomeDescription,
             style: AppTypography.style2,
             textAlign: TextAlign.center,
           ),

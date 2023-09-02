@@ -21,11 +21,7 @@ class WeatherTemperature extends StatelessWidget {
                 text: textTemp,
                 style: const TextStyle(color: Colors.white),
                 children: [
-                  TextSpan(text: '$weatherTemp', style: AppTypography.style3),
-                  TextSpan(
-                    text: '°',
-                    style: AppTypography.style3,
-                  ),
+                  TextSpan(text: '$weatherTemp°', style: AppTypography.style3),
                 ],
               ),
             ),

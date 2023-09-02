@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:weather_app/data/models/location.dart';
 import 'package:weather_app/pages/search_weather_page/cubit/weather_cubit.dart';
+import 'package:weather_app/style/app_typography.dart';
 
 class SearchWeatherBody extends StatefulWidget {
   const SearchWeatherBody({super.key});
@@ -56,7 +58,7 @@ class _SearchWeatherBody extends State<SearchWeatherBody> {
                               MyLocation(city: null, country: null))
                           : null,
                     ),
-                    hintText: 'Search'),
+                    hintText: Strings.of(context).searchHint),
                 controller: cityTextField,
               ),
               Padding(
@@ -67,11 +69,11 @@ class _SearchWeatherBody extends State<SearchWeatherBody> {
                   style:
                       ElevatedButton.styleFrom(backgroundColor: Colors.white),
                   onPressed: context.read<WeatherCubit>().determinePosition,
-                  child: const Padding(
-                    padding: EdgeInsets.all(16.0),
+                  child: Padding(
+                    padding: const EdgeInsets.all(16.0),
                     child: Text(
-                      'My location',
-                      style: TextStyle(color: Colors.black, fontSize: 15),
+                      Strings.of(context).searchLocation,
+                      style: AppTypography.style9,
                     ),
                   ),
                 ),

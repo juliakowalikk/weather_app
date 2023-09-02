@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:weather_app/domain/weather.dart';
 import 'package:weather_app/style/app_typography.dart';
 
@@ -27,7 +28,7 @@ class HourlyResultBody extends StatelessWidget {
               ),
             ),
             Text(
-              '$temperature°',
+              Strings.of(context).hourlyTemp(temperature),
               style: AppTypography.style7,
             ),
           ],

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:intl/intl.dart';
 import 'package:weather_app/data/models/location.dart';
 import 'package:weather_app/domain/weather.dart';
@@ -52,11 +53,11 @@ class WeatherResultBody extends StatelessWidget {
                   Text(today, style: AppTypography.style4),
                   WeatherTemperature(
                     weatherTemp: weather.minTemperature,
-                    textTemp: 'Minimal temperature ',
+                    textTemp: Strings.of(context).minTemp,
                   ),
                   WeatherTemperature(
                     weatherTemp: weather.maxTemperature,
-                    textTemp: 'Maximum temperature ',
+                    textTemp: Strings.of(context).maxTemp,
                   ),
                   Padding(
                     padding: const EdgeInsets.symmetric(vertical: 10),
@@ -81,9 +82,11 @@ class WeatherResultBody extends StatelessWidget {
                     ),
                   ),
                   WeatherSun(
+                      sunMoment: Strings.of(context).sunrise,
                       assetImage: 'assets/images/sunrise.png',
                       time: sunriseTime),
                   WeatherSun(
+                    sunMoment: Strings.of(context).sunset,
                     assetImage: 'assets/images/sunset.png',
                     time: sunsetTime,
                   ),
