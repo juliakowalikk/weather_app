@@ -12,7 +12,7 @@ class WelcomePage extends StatelessWidget {
   Widget build(BuildContext context) => BlocProvider(
         create: (context) => WelcomeCubit()..init(),
         child: Scaffold(
-          backgroundColor: Colors.white,
+          backgroundColor: Colors.black,
           body: SafeArea(
             child: BlocListener<WelcomeCubit, WelcomeState>(
               listener: (context, state) => state.maybeWhen(

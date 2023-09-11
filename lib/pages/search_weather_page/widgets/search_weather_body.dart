@@ -32,54 +32,53 @@ class _SearchWeatherBody extends State<SearchWeatherBody> {
 
   @override
   Widget build(BuildContext context) => SafeArea(
-        child: Padding(
-          padding: const EdgeInsets.all(16.0),
-          child: Column(
-            children: [
-              TextField(
-                decoration: InputDecoration(
-                    focusedBorder: OutlineInputBorder(
-                      borderSide: const BorderSide(color: Colors.white),
-                      borderRadius: BorderRadius.circular(10),
-                    ),
-                    enabledBorder: UnderlineInputBorder(
-                      borderSide: const BorderSide(color: Colors.white),
-                      borderRadius: BorderRadius.circular(10),
-                    ),
-                    contentPadding: const EdgeInsets.symmetric(
-                        horizontal: 12, vertical: 16),
-                    filled: true,
-                    fillColor: Colors.white,
-                    suffixIcon: IconButton(
-                      icon: const Icon(Icons.search),
-                      onPressed: submit
-                          ? () => context.read<WeatherCubit>().getWeather(
-                              cityTextField.text,
-                              MyLocation(city: null, country: null))
-                          : null,
-                    ),
-                    hintText: Strings.of(context).searchHint),
-                controller: cityTextField,
-              ),
-              Padding(
-                padding: const EdgeInsets.only(
-                  top: 8,
+        child: Column(
+          children: [
+            TextField(
+              style: AppTypography.style13,
+              decoration: InputDecoration(
+                hintStyle: AppTypography.style10,
+                focusedBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(8),
                 ),
-                child: ElevatedButton(
-                  style:
-                      ElevatedButton.styleFrom(backgroundColor: Colors.white),
-                  onPressed: context.read<WeatherCubit>().determinePosition,
-                  child: Padding(
-                    padding: const EdgeInsets.all(16.0),
-                    child: Text(
-                      Strings.of(context).searchLocation,
-                      style: AppTypography.style9,
-                    ),
+                enabledBorder: UnderlineInputBorder(
+                  borderRadius: BorderRadius.circular(8),
+                ),
+                contentPadding:
+                    const EdgeInsets.symmetric(horizontal: 12, vertical: 16),
+                filled: true,
+                fillColor: Colors.grey.shade900,
+                prefixIcon: IconButton(
+                  icon: Icon(
+                    Icons.search,
+                    color: Colors.grey.shade500,
+                  ),
+                  onPressed: submit
+                      ? () => context.read<WeatherCubit>().getWeather(
+                          cityTextField.text,
+                          MyLocation(city: null, country: null))
+                      : null,
+                ),
+                hintText: (Strings.of(context).searchHint),
+              ),
+              controller: cityTextField,
+            ),
+            Padding(
+              padding: const EdgeInsets.only(
+                top: 8,
+              ),
+              child: Padding(
+                padding: const EdgeInsets.only(top: 6, bottom: 20),
+                child: GestureDetector(
+                  onTap: context.read<WeatherCubit>().determinePosition,
+                  child: Text(
+                    Strings.of(context).searchLocation,
+                    style: AppTypography.style11,
                   ),
                 ),
               ),
-            ],
-          ),
+            ),
+          ],
         ),
       );
 }

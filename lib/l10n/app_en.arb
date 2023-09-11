@@ -1,11 +1,12 @@
 {
-  "welcomeTitle": "Discover \nthe weather \nin your city",
+  "welcomeTitle": "Discover \nthe weather in \nyour city",
   "welcomeDescription": "Get know your weather \nmaps and radar precipitation \nforecast",
   "maxTemp": "Maximum temperature ",
   "minTemp": "Minimal temperature ",
   "sunrise":"Sunrise",
   "sunset": "Sunset",
   "hourlyTemp": "{temp}°",
-  "searchLocation": "My location",
-  "searchHint": "Search"
+  "searchLocation": "Click to get your location",
+  "searchHint": "Search for a city",
+  "searchWeatherTitle": "Weather"
 }

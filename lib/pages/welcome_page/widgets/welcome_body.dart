@@ -6,21 +6,33 @@ class WelcomeBody extends StatelessWidget {
   const WelcomeBody({super.key});
 
   @override
-  Widget build(BuildContext context) => Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          Text(
-            Strings.of(context).welcomeTitle,
-            textAlign: TextAlign.center,
-            style: AppTypography.style1,
-          ),
-          Image.asset('assets/images/welcome_page.jpg'),
-          Text(
-            Strings.of(context).welcomeDescription,
-            style: AppTypography.style2,
-            textAlign: TextAlign.center,
-          ),
-        ],
+  Widget build(BuildContext context) => Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Image.asset(
+                'assets/images/calendar_5903846.png',
+                height: 200,
+                width: 200,
+              ),
+            ),
+            Text(
+              Strings.of(context).welcomeTitle,
+              textAlign: TextAlign.center,
+              style: AppTypography.style1,
+            ),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Text(
+                Strings.of(context).welcomeDescription,
+                style: AppTypography.style2,
+                textAlign: TextAlign.center,
+              ),
+            ),
+          ],
+        ),
       );
 }

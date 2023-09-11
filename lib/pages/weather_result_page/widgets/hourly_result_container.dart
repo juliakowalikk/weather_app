@@ -3,11 +3,11 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:weather_app/domain/weather.dart';
 import 'package:weather_app/style/app_typography.dart';
 
-class HourlyResultBody extends StatelessWidget {
+class HourlyResulContainer extends StatelessWidget {
   final String time;
   final double temperature;
   final Weather weather;
-  const HourlyResultBody(
+  const HourlyResulContainer(
       {super.key,
       required this.time,
       required this.temperature,

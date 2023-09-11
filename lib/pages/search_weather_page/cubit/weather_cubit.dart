@@ -2,7 +2,6 @@ import 'package:bloc/bloc.dart';
 import 'package:dio/dio.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:geocode/geocode.dart';
-import 'package:geocoding/geocoding.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:weather_app/data/mappers/weather_dto_mapper.dart';
 import 'package:weather_app/data/models/location.dart';
@@ -26,7 +25,7 @@ class WeatherCubit extends Cubit<WeatherState> {
     final WeatherDto dto = WeatherDto.fromJson(weatherResult.data);
     final Weather weather = await mapper(dto);
 
-    emit(WeatherState.goToResultPage(weather, myLocation));
+    emit(WeatherState.goToResultPage(weather));
   }
 
   Future<void> determinePosition() async {
@@ -53,18 +52,12 @@ class WeatherCubit extends Cubit<WeatherState> {
       }
       final position = await Geolocator.getCurrentPosition();
 
-      List<Placemark> newPlace =
-          await placemarkFromCoordinates(position.latitude, position.longitude);
-
-      Placemark placeMark = newPlace[0];
-      final myLocation =
-          MyLocation(city: placeMark.locality, country: placeMark.country);
       final weatherResult = await Dio().get(
           'https://api.open-meteo.com/v1/forecast?latitude=${position.latitude}&longitude=${position.longitude}&hourly=temperature_2m&daily=temperature_2m_max,temperature_2m_min,sunrise,sunset&timezone=auto&forecast_days=1');
       final WeatherDto dto = WeatherDto.fromJson(weatherResult.data);
       final Weather weather = await mapper(dto);
 
-      emit(WeatherState.goToResultPage(weather, myLocation));
+      emit(WeatherState.goToResultPage(weather));
     } catch (e) {
       print(e);
     }
@@ -72,6 +65,7 @@ class WeatherCubit extends Cubit<WeatherState> {
 
   Future<void> getDefaultWeather() async {
     final List<Weather> weather = [];
+
     final weatherRomeResult = await Dio().get(
         'https://api.open-meteo.com/v1/forecast?latitude=41.8919&longitude=12.5113&hourly=temperature_2m&daily=temperature_2m_max,temperature_2m_min,sunrise,sunset,rain_sum,snowfall_sum&timezone=auto&forecast_days=1');
     final WeatherDto romeDto = WeatherDto.fromJson(weatherRomeResult.data);

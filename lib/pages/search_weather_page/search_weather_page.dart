@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:intl/intl.dart';
-import 'package:weather_app/data/models/location.dart';
 import 'package:weather_app/domain/weather.dart';
 import 'package:weather_app/pages/search_weather_page/cubit/weather_cubit.dart';
 import 'package:weather_app/pages/search_weather_page/widgets/default_weather_container.dart';
@@ -22,54 +22,69 @@ class SearchWeatherPage extends StatelessWidget {
         buildWhen: (WeatherState previousState, WeatherState currentState) =>
             currentState is WeatherLoadedState,
         listener: (context, state) => state.maybeWhen(
-          goToResultPage: (Weather weather, MyLocation myLocation) =>
-              Navigator.push(
-            context,
-            MaterialPageRoute(
-              builder: (context) => WeatherResultPage(
-                weather: weather,
-                myLocation: myLocation,
-              ),
-            ),
-          ),
+          goToResultPage: (Weather weather) => goToResultPage(context, weather),
           orElse: () => null,
         ),
         builder: (context, state) => Scaffold(
-          backgroundColor: const Color(0xFFF4F4FB),
-          body: Column(
-            children: [
-              const SearchWeatherBody(),
-              state.maybeWhen(
-                loaded: (List<Weather> weather) => Column(
-                  children: [
-                    Text(today, style: AppTypography.style8),
-                    ListView.builder(
-                      shrinkWrap: true,
-                      itemCount: weather.length,
-                      itemBuilder: (context, index) => Column(
-                        children: [
-                          DefaultWeatherContainer(
-                              country: weather[index].location.country,
-                              temperature: weather[index].maxTemperature,
-                              city: weather[index].location.city,
-                              imageAsset: weather[index].maxTemperature > 25
-                                  ? 'assets/images/hot_search_page.jpg'
-                                  : weather[index].maxTemperature > 20
-                                      ? 'assets/images/moderately_hot_search_page.jpg'
-                                      : weather[index].maxTemperature > 10
-                                          ? 'assets/images/cloudy_search_page.jpg'
-                                          : 'assets/images/cold_search_page.jpg'),
-                        ],
-                      ),
+          backgroundColor: Colors.black,
+          body: SafeArea(
+            child: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.symmetric(vertical: 8),
+                    child: Text(
+                      Strings.of(context).searchWeatherTitle,
+                      style: AppTypography.style12,
                     ),
-                  ],
-                ),
-                orElse: () => const SizedBox(),
+                  ),
+                  const SearchWeatherBody(),
+                  state.maybeWhen(
+                    loaded: (List<Weather> weather) => Column(
+                      children: [
+                        Text(today, style: AppTypography.style7),
+                        ListView.builder(
+                          shrinkWrap: true,
+                          itemCount: weather.length,
+                          itemBuilder: (context, index) => Column(
+                            children: [
+                              InkWell(
+                                child: DefaultWeatherContainer(
+                                    country: weather[index].location.country,
+                                    temperature: weather[index].maxTemperature,
+                                    city: weather[index].location.city,
+                                    imageAsset: weather[index].maxTemperature >
+                                            25
+                                        ? 'assets/images/hot_search_page.jpg'
+                                        : weather[index].maxTemperature > 20
+                                            ? 'assets/images/moderately_hot_search_page.jpg'
+                                            : weather[index].maxTemperature > 10
+                                                ? 'assets/images/cloudy_search_page.jpg'
+                                                : 'assets/images/cold_search_page.jpg'),
+                                onTap: () =>
+                                    goToResultPage(context, weather[index]),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ],
+                    ),
+                    orElse: () => const SizedBox(),
+                  ),
+                ],
               ),
-            ],
+            ),
           ),
         ),
       ),
     );
   }
+
+  void goToResultPage(BuildContext context, Weather weather) => Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => WeatherResultPage(weather: weather),
+      ));
 }

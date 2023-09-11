@@ -9,6 +9,7 @@ class WeatherDtoMapper {
         dto.latitude, dto.longitude,
         localeIdentifier: 'en');
     Placemark placeMark = placemarks[0];
+
     return Weather(
       temperature: dto.hourly.temperature2m,
       time: dto.hourly.time,
