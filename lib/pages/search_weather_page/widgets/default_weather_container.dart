@@ -19,49 +19,47 @@ class DefaultWeatherContainer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => BlocBuilder<WeatherCubit, WeatherState>(
-        builder: (context, state) {
-          return Padding(
-            padding: const EdgeInsets.symmetric(vertical: 16),
-            child: Container(
-              decoration: BoxDecoration(
-                image: DecorationImage(
-                  image: AssetImage(imageAsset),
-                  fit: BoxFit.cover,
-                  colorFilter:
-                      const ColorFilter.mode(Colors.grey, BlendMode.modulate),
-                ),
-                borderRadius: BorderRadius.circular(10),
-                color: Colors.blue,
+        builder: (context, state) => Padding(
+          padding: const EdgeInsets.symmetric(vertical: 16),
+          child: Container(
+            decoration: BoxDecoration(
+              image: DecorationImage(
+                image: AssetImage(imageAsset),
+                fit: BoxFit.cover,
+                colorFilter:
+                    const ColorFilter.mode(Colors.grey, BlendMode.modulate),
               ),
-              child: Row(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.only(left: 8, top: 30),
-                        child: Text(
-                          country!,
-                          style: AppTypography.style6,
-                        ),
-                      ),
-                      Padding(
-                        padding:
-                            const EdgeInsets.only(bottom: 30, left: 8, top: 6),
-                        child: Text(city!, style: AppTypography.style7),
-                      ),
-                    ],
-                  ),
-                  const Spacer(),
-                  Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Text('$temperature°', style: AppTypography.style5),
-                  ),
-                ],
-              ),
+              borderRadius: BorderRadius.circular(10),
+              color: Colors.blue,
             ),
-          );
-        },
+            child: Row(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.only(left: 8, top: 30),
+                      child: Text(
+                        country!,
+                        style: AppTypography.style6,
+                      ),
+                    ),
+                    Padding(
+                      padding:
+                          const EdgeInsets.only(bottom: 30, left: 8, top: 6),
+                      child: Text(city!, style: AppTypography.style7),
+                    ),
+                  ],
+                ),
+                const Spacer(),
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Text('$temperature°', style: AppTypography.style5),
+                ),
+              ],
+            ),
+          ),
+        ),
       );
 }

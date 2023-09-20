@@ -21,6 +21,9 @@ mixin _$WeatherState {
     required TResult Function() initial,
     required TResult Function(List<Weather> weather) loaded,
     required TResult Function(Weather weather) goToResultPage,
+    required TResult Function() errorGetWeather,
+    required TResult Function() errorMyLocationWeather,
+    required TResult Function() errorDefaultWeather,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -28,6 +31,9 @@ mixin _$WeatherState {
     TResult? Function()? initial,
     TResult? Function(List<Weather> weather)? loaded,
     TResult? Function(Weather weather)? goToResultPage,
+    TResult? Function()? errorGetWeather,
+    TResult? Function()? errorMyLocationWeather,
+    TResult? Function()? errorDefaultWeather,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -35,6 +41,9 @@ mixin _$WeatherState {
     TResult Function()? initial,
     TResult Function(List<Weather> weather)? loaded,
     TResult Function(Weather weather)? goToResultPage,
+    TResult Function()? errorGetWeather,
+    TResult Function()? errorMyLocationWeather,
+    TResult Function()? errorDefaultWeather,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -43,6 +52,10 @@ mixin _$WeatherState {
     required TResult Function(_Initial value) initial,
     required TResult Function(WeatherLoadedState value) loaded,
     required TResult Function(WeatherGoToResultPageState value) goToResultPage,
+    required TResult Function(ErrorGetWeather value) errorGetWeather,
+    required TResult Function(ErrorMyLocationWeather value)
+        errorMyLocationWeather,
+    required TResult Function(ErrorDefaultWeather value) errorDefaultWeather,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -50,6 +63,9 @@ mixin _$WeatherState {
     TResult? Function(_Initial value)? initial,
     TResult? Function(WeatherLoadedState value)? loaded,
     TResult? Function(WeatherGoToResultPageState value)? goToResultPage,
+    TResult? Function(ErrorGetWeather value)? errorGetWeather,
+    TResult? Function(ErrorMyLocationWeather value)? errorMyLocationWeather,
+    TResult? Function(ErrorDefaultWeather value)? errorDefaultWeather,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -57,6 +73,9 @@ mixin _$WeatherState {
     TResult Function(_Initial value)? initial,
     TResult Function(WeatherLoadedState value)? loaded,
     TResult Function(WeatherGoToResultPageState value)? goToResultPage,
+    TResult Function(ErrorGetWeather value)? errorGetWeather,
+    TResult Function(ErrorMyLocationWeather value)? errorMyLocationWeather,
+    TResult Function(ErrorDefaultWeather value)? errorDefaultWeather,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -120,6 +139,9 @@ class _$_Initial implements _Initial {
     required TResult Function() initial,
     required TResult Function(List<Weather> weather) loaded,
     required TResult Function(Weather weather) goToResultPage,
+    required TResult Function() errorGetWeather,
+    required TResult Function() errorMyLocationWeather,
+    required TResult Function() errorDefaultWeather,
   }) {
     return initial();
   }
@@ -130,6 +152,9 @@ class _$_Initial implements _Initial {
     TResult? Function()? initial,
     TResult? Function(List<Weather> weather)? loaded,
     TResult? Function(Weather weather)? goToResultPage,
+    TResult? Function()? errorGetWeather,
+    TResult? Function()? errorMyLocationWeather,
+    TResult? Function()? errorDefaultWeather,
   }) {
     return initial?.call();
   }
@@ -140,6 +165,9 @@ class _$_Initial implements _Initial {
     TResult Function()? initial,
     TResult Function(List<Weather> weather)? loaded,
     TResult Function(Weather weather)? goToResultPage,
+    TResult Function()? errorGetWeather,
+    TResult Function()? errorMyLocationWeather,
+    TResult Function()? errorDefaultWeather,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -154,6 +182,10 @@ class _$_Initial implements _Initial {
     required TResult Function(_Initial value) initial,
     required TResult Function(WeatherLoadedState value) loaded,
     required TResult Function(WeatherGoToResultPageState value) goToResultPage,
+    required TResult Function(ErrorGetWeather value) errorGetWeather,
+    required TResult Function(ErrorMyLocationWeather value)
+        errorMyLocationWeather,
+    required TResult Function(ErrorDefaultWeather value) errorDefaultWeather,
   }) {
     return initial(this);
   }
@@ -164,6 +196,9 @@ class _$_Initial implements _Initial {
     TResult? Function(_Initial value)? initial,
     TResult? Function(WeatherLoadedState value)? loaded,
     TResult? Function(WeatherGoToResultPageState value)? goToResultPage,
+    TResult? Function(ErrorGetWeather value)? errorGetWeather,
+    TResult? Function(ErrorMyLocationWeather value)? errorMyLocationWeather,
+    TResult? Function(ErrorDefaultWeather value)? errorDefaultWeather,
   }) {
     return initial?.call(this);
   }
@@ -174,6 +209,9 @@ class _$_Initial implements _Initial {
     TResult Function(_Initial value)? initial,
     TResult Function(WeatherLoadedState value)? loaded,
     TResult Function(WeatherGoToResultPageState value)? goToResultPage,
+    TResult Function(ErrorGetWeather value)? errorGetWeather,
+    TResult Function(ErrorMyLocationWeather value)? errorMyLocationWeather,
+    TResult Function(ErrorDefaultWeather value)? errorDefaultWeather,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -261,6 +299,9 @@ class _$WeatherLoadedState implements WeatherLoadedState {
     required TResult Function() initial,
     required TResult Function(List<Weather> weather) loaded,
     required TResult Function(Weather weather) goToResultPage,
+    required TResult Function() errorGetWeather,
+    required TResult Function() errorMyLocationWeather,
+    required TResult Function() errorDefaultWeather,
   }) {
     return loaded(weather);
   }
@@ -271,6 +312,9 @@ class _$WeatherLoadedState implements WeatherLoadedState {
     TResult? Function()? initial,
     TResult? Function(List<Weather> weather)? loaded,
     TResult? Function(Weather weather)? goToResultPage,
+    TResult? Function()? errorGetWeather,
+    TResult? Function()? errorMyLocationWeather,
+    TResult? Function()? errorDefaultWeather,
   }) {
     return loaded?.call(weather);
   }
@@ -281,6 +325,9 @@ class _$WeatherLoadedState implements WeatherLoadedState {
     TResult Function()? initial,
     TResult Function(List<Weather> weather)? loaded,
     TResult Function(Weather weather)? goToResultPage,
+    TResult Function()? errorGetWeather,
+    TResult Function()? errorMyLocationWeather,
+    TResult Function()? errorDefaultWeather,
     required TResult orElse(),
   }) {
     if (loaded != null) {
@@ -295,6 +342,10 @@ class _$WeatherLoadedState implements WeatherLoadedState {
     required TResult Function(_Initial value) initial,
     required TResult Function(WeatherLoadedState value) loaded,
     required TResult Function(WeatherGoToResultPageState value) goToResultPage,
+    required TResult Function(ErrorGetWeather value) errorGetWeather,
+    required TResult Function(ErrorMyLocationWeather value)
+        errorMyLocationWeather,
+    required TResult Function(ErrorDefaultWeather value) errorDefaultWeather,
   }) {
     return loaded(this);
   }
@@ -305,6 +356,9 @@ class _$WeatherLoadedState implements WeatherLoadedState {
     TResult? Function(_Initial value)? initial,
     TResult? Function(WeatherLoadedState value)? loaded,
     TResult? Function(WeatherGoToResultPageState value)? goToResultPage,
+    TResult? Function(ErrorGetWeather value)? errorGetWeather,
+    TResult? Function(ErrorMyLocationWeather value)? errorMyLocationWeather,
+    TResult? Function(ErrorDefaultWeather value)? errorDefaultWeather,
   }) {
     return loaded?.call(this);
   }
@@ -315,6 +369,9 @@ class _$WeatherLoadedState implements WeatherLoadedState {
     TResult Function(_Initial value)? initial,
     TResult Function(WeatherLoadedState value)? loaded,
     TResult Function(WeatherGoToResultPageState value)? goToResultPage,
+    TResult Function(ErrorGetWeather value)? errorGetWeather,
+    TResult Function(ErrorMyLocationWeather value)? errorMyLocationWeather,
+    TResult Function(ErrorDefaultWeather value)? errorDefaultWeather,
     required TResult orElse(),
   }) {
     if (loaded != null) {
@@ -404,6 +461,9 @@ class _$WeatherGoToResultPageState implements WeatherGoToResultPageState {
     required TResult Function() initial,
     required TResult Function(List<Weather> weather) loaded,
     required TResult Function(Weather weather) goToResultPage,
+    required TResult Function() errorGetWeather,
+    required TResult Function() errorMyLocationWeather,
+    required TResult Function() errorDefaultWeather,
   }) {
     return goToResultPage(weather);
   }
@@ -414,6 +474,9 @@ class _$WeatherGoToResultPageState implements WeatherGoToResultPageState {
     TResult? Function()? initial,
     TResult? Function(List<Weather> weather)? loaded,
     TResult? Function(Weather weather)? goToResultPage,
+    TResult? Function()? errorGetWeather,
+    TResult? Function()? errorMyLocationWeather,
+    TResult? Function()? errorDefaultWeather,
   }) {
     return goToResultPage?.call(weather);
   }
@@ -424,6 +487,9 @@ class _$WeatherGoToResultPageState implements WeatherGoToResultPageState {
     TResult Function()? initial,
     TResult Function(List<Weather> weather)? loaded,
     TResult Function(Weather weather)? goToResultPage,
+    TResult Function()? errorGetWeather,
+    TResult Function()? errorMyLocationWeather,
+    TResult Function()? errorDefaultWeather,
     required TResult orElse(),
   }) {
     if (goToResultPage != null) {
@@ -438,6 +504,10 @@ class _$WeatherGoToResultPageState implements WeatherGoToResultPageState {
     required TResult Function(_Initial value) initial,
     required TResult Function(WeatherLoadedState value) loaded,
     required TResult Function(WeatherGoToResultPageState value) goToResultPage,
+    required TResult Function(ErrorGetWeather value) errorGetWeather,
+    required TResult Function(ErrorMyLocationWeather value)
+        errorMyLocationWeather,
+    required TResult Function(ErrorDefaultWeather value) errorDefaultWeather,
   }) {
     return goToResultPage(this);
   }
@@ -448,6 +518,9 @@ class _$WeatherGoToResultPageState implements WeatherGoToResultPageState {
     TResult? Function(_Initial value)? initial,
     TResult? Function(WeatherLoadedState value)? loaded,
     TResult? Function(WeatherGoToResultPageState value)? goToResultPage,
+    TResult? Function(ErrorGetWeather value)? errorGetWeather,
+    TResult? Function(ErrorMyLocationWeather value)? errorMyLocationWeather,
+    TResult? Function(ErrorDefaultWeather value)? errorDefaultWeather,
   }) {
     return goToResultPage?.call(this);
   }
@@ -458,6 +531,9 @@ class _$WeatherGoToResultPageState implements WeatherGoToResultPageState {
     TResult Function(_Initial value)? initial,
     TResult Function(WeatherLoadedState value)? loaded,
     TResult Function(WeatherGoToResultPageState value)? goToResultPage,
+    TResult Function(ErrorGetWeather value)? errorGetWeather,
+    TResult Function(ErrorMyLocationWeather value)? errorMyLocationWeather,
+    TResult Function(ErrorDefaultWeather value)? errorDefaultWeather,
     required TResult orElse(),
   }) {
     if (goToResultPage != null) {
@@ -475,4 +551,385 @@ abstract class WeatherGoToResultPageState implements WeatherState {
   @JsonKey(ignore: true)
   _$$WeatherGoToResultPageStateCopyWith<_$WeatherGoToResultPageState>
       get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$ErrorGetWeatherCopyWith<$Res> {
+  factory _$$ErrorGetWeatherCopyWith(
+          _$ErrorGetWeather value, $Res Function(_$ErrorGetWeather) then) =
+      __$$ErrorGetWeatherCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$ErrorGetWeatherCopyWithImpl<$Res>
+    extends _$WeatherStateCopyWithImpl<$Res, _$ErrorGetWeather>
+    implements _$$ErrorGetWeatherCopyWith<$Res> {
+  __$$ErrorGetWeatherCopyWithImpl(
+      _$ErrorGetWeather _value, $Res Function(_$ErrorGetWeather) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$ErrorGetWeather implements ErrorGetWeather {
+  const _$ErrorGetWeather();
+
+  @override
+  String toString() {
+    return 'WeatherState.errorGetWeather()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$ErrorGetWeather);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function(List<Weather> weather) loaded,
+    required TResult Function(Weather weather) goToResultPage,
+    required TResult Function() errorGetWeather,
+    required TResult Function() errorMyLocationWeather,
+    required TResult Function() errorDefaultWeather,
+  }) {
+    return errorGetWeather();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function(List<Weather> weather)? loaded,
+    TResult? Function(Weather weather)? goToResultPage,
+    TResult? Function()? errorGetWeather,
+    TResult? Function()? errorMyLocationWeather,
+    TResult? Function()? errorDefaultWeather,
+  }) {
+    return errorGetWeather?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function(List<Weather> weather)? loaded,
+    TResult Function(Weather weather)? goToResultPage,
+    TResult Function()? errorGetWeather,
+    TResult Function()? errorMyLocationWeather,
+    TResult Function()? errorDefaultWeather,
+    required TResult orElse(),
+  }) {
+    if (errorGetWeather != null) {
+      return errorGetWeather();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(WeatherLoadedState value) loaded,
+    required TResult Function(WeatherGoToResultPageState value) goToResultPage,
+    required TResult Function(ErrorGetWeather value) errorGetWeather,
+    required TResult Function(ErrorMyLocationWeather value)
+        errorMyLocationWeather,
+    required TResult Function(ErrorDefaultWeather value) errorDefaultWeather,
+  }) {
+    return errorGetWeather(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(WeatherLoadedState value)? loaded,
+    TResult? Function(WeatherGoToResultPageState value)? goToResultPage,
+    TResult? Function(ErrorGetWeather value)? errorGetWeather,
+    TResult? Function(ErrorMyLocationWeather value)? errorMyLocationWeather,
+    TResult? Function(ErrorDefaultWeather value)? errorDefaultWeather,
+  }) {
+    return errorGetWeather?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(WeatherLoadedState value)? loaded,
+    TResult Function(WeatherGoToResultPageState value)? goToResultPage,
+    TResult Function(ErrorGetWeather value)? errorGetWeather,
+    TResult Function(ErrorMyLocationWeather value)? errorMyLocationWeather,
+    TResult Function(ErrorDefaultWeather value)? errorDefaultWeather,
+    required TResult orElse(),
+  }) {
+    if (errorGetWeather != null) {
+      return errorGetWeather(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class ErrorGetWeather implements WeatherState {
+  const factory ErrorGetWeather() = _$ErrorGetWeather;
+}
+
+/// @nodoc
+abstract class _$$ErrorMyLocationWeatherCopyWith<$Res> {
+  factory _$$ErrorMyLocationWeatherCopyWith(_$ErrorMyLocationWeather value,
+          $Res Function(_$ErrorMyLocationWeather) then) =
+      __$$ErrorMyLocationWeatherCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$ErrorMyLocationWeatherCopyWithImpl<$Res>
+    extends _$WeatherStateCopyWithImpl<$Res, _$ErrorMyLocationWeather>
+    implements _$$ErrorMyLocationWeatherCopyWith<$Res> {
+  __$$ErrorMyLocationWeatherCopyWithImpl(_$ErrorMyLocationWeather _value,
+      $Res Function(_$ErrorMyLocationWeather) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$ErrorMyLocationWeather implements ErrorMyLocationWeather {
+  const _$ErrorMyLocationWeather();
+
+  @override
+  String toString() {
+    return 'WeatherState.errorMyLocationWeather()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$ErrorMyLocationWeather);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function(List<Weather> weather) loaded,
+    required TResult Function(Weather weather) goToResultPage,
+    required TResult Function() errorGetWeather,
+    required TResult Function() errorMyLocationWeather,
+    required TResult Function() errorDefaultWeather,
+  }) {
+    return errorMyLocationWeather();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function(List<Weather> weather)? loaded,
+    TResult? Function(Weather weather)? goToResultPage,
+    TResult? Function()? errorGetWeather,
+    TResult? Function()? errorMyLocationWeather,
+    TResult? Function()? errorDefaultWeather,
+  }) {
+    return errorMyLocationWeather?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function(List<Weather> weather)? loaded,
+    TResult Function(Weather weather)? goToResultPage,
+    TResult Function()? errorGetWeather,
+    TResult Function()? errorMyLocationWeather,
+    TResult Function()? errorDefaultWeather,
+    required TResult orElse(),
+  }) {
+    if (errorMyLocationWeather != null) {
+      return errorMyLocationWeather();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(WeatherLoadedState value) loaded,
+    required TResult Function(WeatherGoToResultPageState value) goToResultPage,
+    required TResult Function(ErrorGetWeather value) errorGetWeather,
+    required TResult Function(ErrorMyLocationWeather value)
+        errorMyLocationWeather,
+    required TResult Function(ErrorDefaultWeather value) errorDefaultWeather,
+  }) {
+    return errorMyLocationWeather(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(WeatherLoadedState value)? loaded,
+    TResult? Function(WeatherGoToResultPageState value)? goToResultPage,
+    TResult? Function(ErrorGetWeather value)? errorGetWeather,
+    TResult? Function(ErrorMyLocationWeather value)? errorMyLocationWeather,
+    TResult? Function(ErrorDefaultWeather value)? errorDefaultWeather,
+  }) {
+    return errorMyLocationWeather?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(WeatherLoadedState value)? loaded,
+    TResult Function(WeatherGoToResultPageState value)? goToResultPage,
+    TResult Function(ErrorGetWeather value)? errorGetWeather,
+    TResult Function(ErrorMyLocationWeather value)? errorMyLocationWeather,
+    TResult Function(ErrorDefaultWeather value)? errorDefaultWeather,
+    required TResult orElse(),
+  }) {
+    if (errorMyLocationWeather != null) {
+      return errorMyLocationWeather(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class ErrorMyLocationWeather implements WeatherState {
+  const factory ErrorMyLocationWeather() = _$ErrorMyLocationWeather;
+}
+
+/// @nodoc
+abstract class _$$ErrorDefaultWeatherCopyWith<$Res> {
+  factory _$$ErrorDefaultWeatherCopyWith(_$ErrorDefaultWeather value,
+          $Res Function(_$ErrorDefaultWeather) then) =
+      __$$ErrorDefaultWeatherCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$ErrorDefaultWeatherCopyWithImpl<$Res>
+    extends _$WeatherStateCopyWithImpl<$Res, _$ErrorDefaultWeather>
+    implements _$$ErrorDefaultWeatherCopyWith<$Res> {
+  __$$ErrorDefaultWeatherCopyWithImpl(
+      _$ErrorDefaultWeather _value, $Res Function(_$ErrorDefaultWeather) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$ErrorDefaultWeather implements ErrorDefaultWeather {
+  const _$ErrorDefaultWeather();
+
+  @override
+  String toString() {
+    return 'WeatherState.errorDefaultWeather()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$ErrorDefaultWeather);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function(List<Weather> weather) loaded,
+    required TResult Function(Weather weather) goToResultPage,
+    required TResult Function() errorGetWeather,
+    required TResult Function() errorMyLocationWeather,
+    required TResult Function() errorDefaultWeather,
+  }) {
+    return errorDefaultWeather();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function(List<Weather> weather)? loaded,
+    TResult? Function(Weather weather)? goToResultPage,
+    TResult? Function()? errorGetWeather,
+    TResult? Function()? errorMyLocationWeather,
+    TResult? Function()? errorDefaultWeather,
+  }) {
+    return errorDefaultWeather?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function(List<Weather> weather)? loaded,
+    TResult Function(Weather weather)? goToResultPage,
+    TResult Function()? errorGetWeather,
+    TResult Function()? errorMyLocationWeather,
+    TResult Function()? errorDefaultWeather,
+    required TResult orElse(),
+  }) {
+    if (errorDefaultWeather != null) {
+      return errorDefaultWeather();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(WeatherLoadedState value) loaded,
+    required TResult Function(WeatherGoToResultPageState value) goToResultPage,
+    required TResult Function(ErrorGetWeather value) errorGetWeather,
+    required TResult Function(ErrorMyLocationWeather value)
+        errorMyLocationWeather,
+    required TResult Function(ErrorDefaultWeather value) errorDefaultWeather,
+  }) {
+    return errorDefaultWeather(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(WeatherLoadedState value)? loaded,
+    TResult? Function(WeatherGoToResultPageState value)? goToResultPage,
+    TResult? Function(ErrorGetWeather value)? errorGetWeather,
+    TResult? Function(ErrorMyLocationWeather value)? errorMyLocationWeather,
+    TResult? Function(ErrorDefaultWeather value)? errorDefaultWeather,
+  }) {
+    return errorDefaultWeather?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(WeatherLoadedState value)? loaded,
+    TResult Function(WeatherGoToResultPageState value)? goToResultPage,
+    TResult Function(ErrorGetWeather value)? errorGetWeather,
+    TResult Function(ErrorMyLocationWeather value)? errorMyLocationWeather,
+    TResult Function(ErrorDefaultWeather value)? errorDefaultWeather,
+    required TResult orElse(),
+  }) {
+    if (errorDefaultWeather != null) {
+      return errorDefaultWeather(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class ErrorDefaultWeather implements WeatherState {
+  const factory ErrorDefaultWeather() = _$ErrorDefaultWeather;
 }

@@ -6,7 +6,6 @@
   "sunrise":"Sunrise",
   "sunset": "Sunset",
   "hourlyTemp": "{temp}°",
-  "searchLocation": "Click to get your location",
   "searchHint": "Search for a city",
   "searchWeatherTitle": "Weather"
 }

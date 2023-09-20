@@ -6,4 +6,6 @@ class WeatherState with _$WeatherState {
   const factory WeatherState.loaded(List<Weather> weather) = WeatherLoadedState;
   const factory WeatherState.goToResultPage(Weather weather) =
       WeatherGoToResultPageState;
+  const factory WeatherState.errorGetWeather() = ErrorGetWeather;
+  const factory WeatherState.errorDefaultWeather() = ErrorDefaultWeather;
 }
